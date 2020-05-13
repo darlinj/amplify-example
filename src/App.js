@@ -2,7 +2,7 @@ import React, {useEffect, useState } from 'react';
 import {API, graphqlOperation } from 'aws-amplify'
 import {createTodo} from './graphql/mutations'
 import {listTodos} from './graphql/queries'
-import {withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
+//import {withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
 
 const initialState = { name: '', description: '' }
 
@@ -46,24 +46,25 @@ const App = () => {
       onChange={event => setInput('name', event.target.value)}
       style={styles.input}
       value={formState.name}
+      cy-data="todo-name"
       placeholder="Name"
     />
     <input
       onChange={event => setInput('description', event.target.value)}
       style={styles.input}
       value={formState.description}
+      cy-data="todo-description"
       placeholder="Description"
     />
-    <button style={styles.button} onClick={addTodo}>Create Todo</button>
+    <button style={styles.button} cy-data="add-todo" onClick={addTodo}>Create Todo</button>
     {
-              todos.map((todo, index) => (
+      todos.map((todo, index) => (
           <div key={todo.id ? todo.id : index} style={styles.todo}>
-            <p style={styles.todoName}>{todo.name}</p>
-            <p style={styles.todoDescription}>{todo.description}</p>
+            <p style={styles.todoName} cy-data="todo-list-item-name">{todo.name}</p>
+            <p style={styles.todoDescription} cy-data="todo-list-item-description">{todo.description}</p>
           </div>
         ))
-      }
-    <AmplifySignOut />
+    }
     </div>
   )
 }
@@ -77,4 +78,4 @@ const styles = {
   button: { backgroundColor: 'black', color: 'white', outline: 'none', fontSize: 18, padding: '12px 0px' }
 }
 
-export default withAuthenticator(App)
+export default App
