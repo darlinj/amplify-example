@@ -11,7 +11,7 @@
     "mochawesome": "^6.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "wait-on": "^5.0.0"
   },
   "scripts": {
@@ -36,6 +36,6 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^4.5.0"
+    "cypress": "^14.5.2"
   }
 }
